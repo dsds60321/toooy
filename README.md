@@ -8,4 +8,4 @@
 * springFrameworkd 3.4
 * JPA
 
-[API_DOCS](src/docs/asciidoc/index.adoc)
+[API_DOCS](https://htmlpreview.github.io/?https://github.com/dsds60321/toooy/blob/main/src/main/resources/static/docs/index.html)
