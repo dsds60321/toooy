@@ -1,0 +1,21 @@
+package dev.gunho.toooy.user.mapper;
+
+import dev.gunho.toooy.user.dto.UserDto;
+import dev.gunho.toooy.user.entity.UserEntity;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
+
+@Mapper
+public interface UserMapper {
+
+    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
+
+    @Mapping(target = "idx", ignore = true) // idx 필드 무시
+    @Mapping(target = "regDate", ignore = true) // regDate 필드 무시
+    @Mapping(target = "udtDate", ignore = true) // udtDate 필드 무시
+    UserEntity toEntity(UserDto dto);
+
+    UserDto toDto(UserEntity entity);
+
+}
