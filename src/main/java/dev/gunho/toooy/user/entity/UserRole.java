@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum UserRole {
 
-    ROLE_DEFAULT("DEFAULT");
+    DEFAULT("DEFAULT");
 
     private final String value;
 

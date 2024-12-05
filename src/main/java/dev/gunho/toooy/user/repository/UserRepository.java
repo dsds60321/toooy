@@ -4,4 +4,7 @@ import dev.gunho.toooy.user.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
+    UserEntity getByUserId(String userId);
+
+    boolean existsByUserId(String userId);
 }

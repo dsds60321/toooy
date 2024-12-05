@@ -16,15 +16,36 @@ public class ApiResponse<T> {
     private String message;
     private T result;
 
-    public static <T> ResponseEntity<ApiResponse<T>> SUCCESS(T data) {
+    public static <T> ResponseEntity<ApiResponse<T>> SUCCESS() {
         ApiResponse<T> response = ApiResponse.<T>builder()
                 .code(ApiResponseCode.SUCCESS.getCode())
                 .message(ApiResponseCode.SUCCESS.getMessage())
+                .result(null)
+                .build();
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    public static <T> ResponseEntity<ApiResponse<T>> SUCCESS(String message) {
+        ApiResponse<T> response = ApiResponse.<T>builder()
+                .code(ApiResponseCode.SUCCESS.getCode())
+                .message(message)
+                .result(null)
+                .build();
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    public static <T> ResponseEntity<ApiResponse<T>> SUCCESS(String message, T data) {
+        ApiResponse<T> response = ApiResponse.<T>builder()
+                .code(ApiResponseCode.SUCCESS.getCode())
+                .message(message)
                 .result(data)
                 .build();
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+
 
     public static <T> ResponseEntity<ApiResponse<T>> BAD_REQUEST() {
         ApiResponse<T> response = ApiResponse.<T>builder()

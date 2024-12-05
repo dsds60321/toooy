@@ -1,10 +1,13 @@
 package dev.gunho.toooy.user.controller;
 
 import dev.gunho.toooy.global.dto.ApiResponse;
+import dev.gunho.toooy.user.dto.UserDto;
+import dev.gunho.toooy.user.service.AuthService;
 import jdk.jfr.Description;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,9 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class AuthController {
 
+    private final AuthService authService;
+
     @PostMapping("/sign-up")
-    public ResponseEntity<?> signUp() {
-        return ApiResponse.SERVER_ERROR();
+    public ResponseEntity<?> signUp(@RequestBody final UserDto userDto) {
+        return authService.signUp(userDto);
     }
 
  }
