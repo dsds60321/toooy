@@ -1,6 +1,6 @@
 package dev.gunho.toooy.user.dto;
 
-import dev.gunho.toooy.user.entity.UserRole;
+import dev.gunho.toooy.user.constant.UserRole;
 
 public record UserDto(
         String userId,

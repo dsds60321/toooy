@@ -1,9 +1,9 @@
 package dev.gunho.toooy.user.service;
 
 import dev.gunho.toooy.global.dto.ApiResponse;
+import dev.gunho.toooy.user.constant.UserRole;
 import dev.gunho.toooy.user.dto.UserDto;
-import dev.gunho.toooy.user.entity.UserEntity;
-import dev.gunho.toooy.user.entity.UserRole;
+import dev.gunho.toooy.user.domain.User;
 import dev.gunho.toooy.user.mapper.UserMapper;
 import dev.gunho.toooy.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,8 +28,8 @@ public class AuthService {
             return ApiResponse.BAD_REQUEST("이미 존재하는 계정입니다.");
         }
 
-        UserEntity userEntity = UserMapper.INSTANCE.toEntity(userDto.setRole(UserRole.DEFAULT));
-        UserEntity resEntity = userRepository.save(userEntity);
+        User user = UserMapper.INSTANCE.toEntity(userDto.setRole(UserRole.DEFAULT));
+        User resEntity = userRepository.save(user);
 
         return resEntity != null ? ApiResponse.SUCCESS("계정 등록에 성공했습니다.") : ApiResponse.SERVER_ERROR();
     }

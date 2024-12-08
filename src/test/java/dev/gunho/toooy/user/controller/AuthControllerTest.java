@@ -58,6 +58,7 @@ class AuthControllerTest {
         }
         """;
 
+
         userJson = String.format(userJson, random, random);
 
         // when - then

@@ -12,7 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 public class ExceptionController {
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public final ResponseEntity<?> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
+    public final ResponseEntity<?> handleIllegalArgumentException(IllegalArgumentException ex) {
         log.warn("잘못된 요청 감지 : {} ", ex.getMessage());
         return ApiResponse.BAD_REQUEST(ex.getMessage());
     }

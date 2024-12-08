@@ -1,4 +1,4 @@
-package dev.gunho.toooy.user.entity;
+package dev.gunho.toooy.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.gunho.toooy.global.entity.BaseTimeEntity;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Entity(name = "auth")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class AuthEntity extends BaseTimeEntity {
+public class Auth extends BaseTimeEntity {
 
     @Id
     @Column(name = "idx")
@@ -30,7 +30,7 @@ public class AuthEntity extends BaseTimeEntity {
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private UserEntity user;
+    private User user;
 
     @Column(name = "reg_date")
     private LocalDateTime regDate;

@@ -1,4 +1,4 @@
-package dev.gunho.toooy.user.entity;
+package dev.gunho.toooy.user.constant;
 
 import lombok.Getter;
 

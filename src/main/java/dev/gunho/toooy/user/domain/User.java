@@ -1,8 +1,12 @@
-package dev.gunho.toooy.user.entity;
+package dev.gunho.toooy.user.domain;
 
 import dev.gunho.toooy.global.entity.BaseTimeEntity;
+import dev.gunho.toooy.user.constant.UserRole;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -12,7 +16,7 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserEntity extends BaseTimeEntity {
+public class User extends BaseTimeEntity {
 
     @Id
     @Column(name = "idx")
@@ -31,6 +35,12 @@ public class UserEntity extends BaseTimeEntity {
     @Column(length = 32)
     private String nick;
 
+    @Column(length = 4)
+    private String os;
+
+    @Column(length = 128)
+    private String uuid;
+
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
@@ -40,11 +50,10 @@ public class UserEntity extends BaseTimeEntity {
     @Column(name = "udt_date")
     private LocalDateTime udtDate;
 
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        UserEntity that = (UserEntity) o;
+        User that = (User) o;
         return idx == that.idx;
     }
 
