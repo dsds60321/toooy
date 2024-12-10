@@ -32,12 +32,6 @@ public class Auth extends BaseTimeEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "reg_date")
-    private LocalDateTime regDate;
-
-    @Column(name = "udt_date")
-    private LocalDateTime udtDate;
-
     public void updateAccessToken(String newAccessToken) {
         this.accessToken = newAccessToken;
     }

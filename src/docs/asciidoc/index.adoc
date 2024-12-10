@@ -13,9 +13,14 @@ include::{snippets}/auth-controller-test/회원가입성공/request-body.adoc[]
 [응답]
 include::{snippets}/auth-controller-test/회원가입성공/response-body.adoc[]
 
+[CURL]
+include::{snippets}/auth-controller-test/회원가입성공/curl-request.adoc[]
 === 로그인
 [요청]
 include::{snippets}/auth-controller-test/로그인성공/request-body.adoc[]
 
 [응답]
 include::{snippets}/auth-controller-test/로그인성공/response-body.adoc[]
+
+[CURL]
+include::{snippets}/auth-controller-test/회원가입성공/curl-request.adoc[]

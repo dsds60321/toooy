@@ -9,7 +9,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity(name = "user")
@@ -44,12 +43,6 @@ public class User extends BaseTimeEntity {
 
     @Enumerated(EnumType.STRING)
     private UserRole role;
-
-    @Column(name = "reg_date")
-    private LocalDateTime regDate;
-
-    @Column(name = "udt_date")
-    private LocalDateTime udtDate;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
     @JsonIgnore
