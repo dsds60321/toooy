@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.gunho.toooy.global.entity.BaseTimeEntity;
 import jakarta.persistence.*;
 import jdk.jfr.Description;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -14,6 +12,8 @@ import java.time.LocalDateTime;
 @Entity(name = "auth")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@AllArgsConstructor
 public class Auth extends BaseTimeEntity {
 
     @Id
@@ -37,4 +37,12 @@ public class Auth extends BaseTimeEntity {
 
     @Column(name = "udt_date")
     private LocalDateTime udtDate;
+
+    public void updateAccessToken(String newAccessToken) {
+        this.accessToken = newAccessToken;
+    }
+
+    public void updateRefreshToken(String newRefreshToken) {
+        this.refreshToken = newRefreshToken;
+    }
 }

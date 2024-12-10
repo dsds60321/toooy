@@ -435,36 +435,45 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
 </head>
-<body class="article">
+<body class="book toc2 toc-left">
 <div id="header">
 <h1>TOOY API</h1>
 <div class="details">
 <span id="revnumber">version 0.0.1-SNAPSHOT</span>
 </div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_인증">인증</a>
+<ul class="sectlevel2">
+<li><a href="#_회원가입">회원가입</a></li>
+<li><a href="#_로그인">로그인</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_회원가입">회원가입</h2>
+<h2 id="_인증">인증</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_요청">요청</h3>
+<h3 id="_회원가입">회원가입</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-json" data-lang="json">{
-  "userId" : "8f92d",
-  "password" : "12345",
-  "email" : "8f92d@naver.com",
+<pre class="highlightjs highlight nowrap"><code class="language-json hljs" data-lang="json">{
+  "userId" : "test",
+  "password" : "1234",
+  "email" : "dsds601@naver.com",
   "nick" : "게스트"
 }</code></pre>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_응답">응답</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-json" data-lang="json">{
+<pre class="highlightjs highlight nowrap"><code class="language-json hljs" data-lang="json">{
   "code" : 200,
   "message" : "계정 등록에 성공했습니다.",
   "result" : null
@@ -473,17 +482,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_curl">CURL</h3>
+<h3 id="_로그인">로그인</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/auth/sign-up' -i -X POST \
-    -H 'Content-Type: application/json' \
-    -d '{
-  "userId" : "8f92d",
-  "password" : "12345",
-  "email" : "8f92d@naver.com",
-  "nick" : "게스트"
-}'</code></pre>
+<pre class="highlightjs highlight nowrap"><code class="language-json hljs" data-lang="json">{
+  "userId" : "test",
+  "password" : "1234"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-json hljs" data-lang="json">{
+  "code" : 200,
+  "message" : "요청이 성공적으로 처리되었습니다.",
+  "result" : {
+    "regDate" : null,
+    "udtDate" : null,
+    "idx" : 1,
+    "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWR4IjoyLCJ1c2VySWQiOiJ0ZXN0IiwiZW1haWwiOiJkc2RzNjAxQG5hdmVyLmNvbSIsIm5pY2siOiLqsozsiqTtirgiLCJpYXQiOjE3MzM4NTIwNDEsImV4cCI6MTczMzg1NTY0MX0.ziPAZmMpNdnhessLpf-mtKC3CsQQIty6DuMVCUSDXJg",
+    "refreshToken" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiaWR4IjoyLCJ1c2VySWQiOiJ0ZXN0IiwiZW1haWwiOiJkc2RzNjAxQG5hdmVyLmNvbSIsIm5pY2siOiLqsozsiqTtirgiLCJpYXQiOjE3MzM4NTIwNDEsImV4cCI6MTczNDQ1Njg0MX0.qIK7zF0hW2SnLv9hBA7ul-WE8y9gOmF2RZhA3PCjjqo"
+  }
+}</code></pre>
 </div>
 </div>
 </div>
@@ -493,8 +513,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2024-12-06 00:58:24 +0900
+Last updated 2024-12-11 02:33:06 +0900
 </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
 </body>
 </html>

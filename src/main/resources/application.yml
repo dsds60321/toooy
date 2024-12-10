@@ -14,7 +14,7 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver              # MariaDB 드라이버 클래스 이름
   jpa:
     hibernate:
-      ddl-auto: update                                      # 데이터베이스 스키마 자동 생성 전략 (none, update, create, create-drop 중 선택)
+      ddl-auto: create-drop                                      # 데이터베이스 스키마 자동 생성 전략 (none, update, create, create-drop 중 선택)
     show-sql: true                                          # SQL 쿼리 로그 출력 여부
     properties:
       hibernate:

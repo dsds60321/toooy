@@ -1,5 +1,6 @@
 package dev.gunho.toooy.user.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.gunho.toooy.global.entity.BaseTimeEntity;
 import dev.gunho.toooy.user.constant.UserRole;
 import jakarta.persistence.*;
@@ -26,10 +27,10 @@ public class User extends BaseTimeEntity {
     @Column(name = "user_id", nullable = false, unique = true, length = 32)
     private String userId;
 
-    @Column(nullable = false, length = 32)
+    @Column(nullable = false, length = 128)
     private String password;
 
-    @Column(unique = true, length = 64)
+    @Column(length = 64)
     private String email;
 
     @Column(length = 32)
@@ -49,6 +50,10 @@ public class User extends BaseTimeEntity {
 
     @Column(name = "udt_date")
     private LocalDateTime udtDate;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private Auth auth;
 
     @Override
     public boolean equals(Object o) {
