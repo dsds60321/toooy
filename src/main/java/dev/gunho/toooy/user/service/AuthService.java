@@ -7,6 +7,8 @@ import dev.gunho.toooy.global.exception.TooyException;
 import dev.gunho.toooy.global.provider.JwtProvider;
 import dev.gunho.toooy.user.constant.UserRole;
 import dev.gunho.toooy.user.domain.Auth;
+import dev.gunho.toooy.user.domain.QAuth;
+import dev.gunho.toooy.user.domain.QUser;
 import dev.gunho.toooy.user.dto.UserDto;
 import dev.gunho.toooy.user.domain.User;
 import dev.gunho.toooy.user.mapper.UserMapper;
