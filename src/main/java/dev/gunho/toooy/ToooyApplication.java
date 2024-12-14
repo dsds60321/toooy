@@ -11,5 +11,12 @@ public class ToooyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ToooyApplication.class, args);
 	}
+//
+//	@Bean
+//	CommandLineRunner runner(KafkaTemplate<String, String> template) {
+//		return args -> {
+//			template.send("test", "Hello from Spring Boot!");
+//		};
+//	}
 
 }

@@ -44,6 +44,8 @@ dependencies {
 
 	//	메일
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
+//	implementation 'org.springframework.kafka:spring-kafka'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
 	compileOnly 'org.projectlombok:lombok'
 
 	// 마리아

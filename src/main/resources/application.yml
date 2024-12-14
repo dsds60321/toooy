@@ -1,5 +1,6 @@
 server:
-  port: 8080
+  port: 80
+#  address: localhost
 
 logging:
   level:
@@ -21,6 +22,8 @@ spring:
         format_sql: true
         use_sql_comments: true
         dialect: org.hibernate.dialect.MariaDBDialect      # MariaDB Dialect 설정
+#  kafka:
+#    bootstrap-servers: localhost:9092
 
 # JWT
 jwt:
