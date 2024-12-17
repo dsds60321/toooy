@@ -1,4 +1,4 @@
-package dev.gunho.toooy.appointment.entity;
+package dev.gunho.toooy.appointment.domain;
 
 import dev.gunho.toooy.appointment.constant.Status;
 import dev.gunho.toooy.user.domain.User;
@@ -20,20 +20,20 @@ public class UserAppointment {
     private long idx;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_idx", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user; // 연결된 유저
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "appointment_idx", nullable = false)
-    private Appointments appointment; // 연결된 약속
+    @JoinColumn(name = "appointment_id", nullable = false)
+    private Appointment appointment; // 연결된 약속
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", length = 20, nullable = false)
+    @Column(length = 20, nullable = false)
     private Status status; // 참여 상태
 
-    @Column(name = "is_host", nullable = false)
+    @Column(nullable = false)
     private Boolean isHost; // 주최자 여부 user 기준
 
-    @Column(name = "result_status")
+    @Column()
     private Boolean resultStatus;
 }

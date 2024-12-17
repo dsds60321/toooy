@@ -1,7 +1,7 @@
 package dev.gunho.toooy.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dev.gunho.toooy.appointment.entity.UserAppointment;
+import dev.gunho.toooy.appointment.domain.UserAppointment;
 import dev.gunho.toooy.global.entity.BaseTimeEntity;
 import dev.gunho.toooy.user.constant.UserRole;
 import dev.gunho.toooy.user.dto.ResultStatus;
